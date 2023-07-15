@@ -1,10 +1,8 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const members = ["person1", "person2", "person3", "person4", "person5"];
+  const [char, setChar] = useState("");
   const [answersList, setAnswersList] = useState({
     person1: { first: "", last: "", city: "" },
     person2: { first: "", last: "", city: "" },
@@ -12,11 +10,22 @@ function App() {
     person4: { first: "", last: "", city: "" },
     person5: { first: "", last: "", city: "" },
   });
+  const [res, setRes] = useState({
+    person1: 0,
+    person2: 0,
+    person3: 0,
+    person4: 0,
+    person5: 0,
+  });
+  const finall = () => {
+    for (const member in answersList) {
+    }
+  };
 
   return (
     <>
       <label>char: </label>
-      <input />
+      <input defaultValue={char} onChange={(e) => setChar(e.target.value)} />
       {Object.keys(answersList).map((member) => (
         <div key={member}>
           <span>{member} : </span>
@@ -49,7 +58,7 @@ function App() {
           />
         </div>
       ))}
-      <button>response</button>
+      <button onClick={finall}>response</button>
     </>
   );
 }
